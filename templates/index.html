@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Sentiment Analyser</title>
-</head>
-<body>
-	<form action="http://localhost:5000" method="post">
-		<input type="text" id="text_to_analyse" name="text_to_analyse" placeholder="Enter the text to analyse..."></input>
-		<input type="submit" id="submit_text_button" value="submit">
-	</form>
+<html >
 
-	<p>{{sentence}} : {{ result }}</p>
+<head>
+  <title>Twitter search application</title>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Twitter search application</h1>
+     <h3> Enter a topic</h3>
+
+     <form action="http://localhost:5000" method="post">
+		<input type="text" id="text_to_analyse" name="text_to_analyse" placeholder="Enter a word..."></input>
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ similar_tweets }}
+
+ </div>
+
+
 </body>
 </html>
