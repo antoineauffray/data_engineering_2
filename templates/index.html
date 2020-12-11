@@ -11,13 +11,17 @@
      <h3> Enter a topic</h3>
 
      <form action="http://localhost:5000" method="post">
-		<input type="text" id="text_to_analyse" name="text_to_analyse" placeholder="Enter a word..."></input>
-        <button type="submit" class="btn">Predict</button>
+		<input type="text" id="word_to_analyse" name="word_to_analyse" placeholder="Enter a word..."></input>
+        <button type="submit" class="btn">Submit</button>
     </form>
 
    <br>
    <br>
-   {{ similar_tweets }}
+   <h3> Topic : {{ word }}</h3>
+
+   {% for table in similar_tweets %}
+            {{ table|safe }}
+  {% endfor %}
 
  </div>
 
