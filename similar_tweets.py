@@ -4,11 +4,10 @@ from gensim.models import Word2Vec
 from gensim.models.doc2vec import Doc2Vec
 from gensim.models.fasttext import FastText
 
-def get_similar_tweets(sentence, model):
-    pp = ' '.join([token.text for token in nlp(sentence) if token.is_alpha and not (token.is_oov or token.is_stop)])
+def get_similar_tweets(sentence, model, nlp):
+    pp = ' '.join([token.text for token in nlp(sentence) if token.is_alpha and not (token.is_stop or token.is_oov)])
     lem = ' '.join([token.lemma_ if token.lemma_ != '-PRON-' else token.text for token in nlp(pp)])
 
-    slp = pp.split()
     sll = lem.split()
 
     dist = []
