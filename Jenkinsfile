@@ -27,7 +27,7 @@ pipeline
                 bash "python unittest.py"
 
                 echo "Running integration test"
-#                bash "python integration_test.py"
+//                bash "python integration_test.py"
             }
         }
         stage("Close")
