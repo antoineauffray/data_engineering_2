@@ -16,7 +16,7 @@ pipeline {
         stage("Tests") {
             steps {
                 echo "Running unit test"
-                sh "python unittest.py"
+                sh "python unittest_model.py"
 
                 echo "Running integration test"
 //                bash "python integration_test.py"
