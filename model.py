@@ -1,3 +1,4 @@
+import sys
 import tarfile
 
 import spacy
@@ -23,16 +24,19 @@ def predict():
     if request.method == 'POST':
         
         word = request.form['word_to_analyse']
-        try:
-            model = request.form['model']
-        except:
-            model = "w2v"
+        if word != "":
+            try:
+                model = request.form['model']
+            except:
+                model = "w2v"
+    
+            print("\n Model used :", model, '\n', file=sys.stderr)
         
-        result = get_similar_tweets(word, model, nlp)
+            result = get_similar_tweets(word, model, nlp)
 
-        return render_template(template, similar_tweets=[result.to_html(classes='data', header="true")], word=word)
-    else:
-        return render_template(template)
+            return render_template(template, similar_tweets=[result.to_html(classes='data', header="true")], word=word)
+    
+    return render_template(template)
 
 
 if __name__ == '__main__':
