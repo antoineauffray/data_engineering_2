@@ -29,8 +29,6 @@ def predict():
                 model = request.form['model']
             except:
                 model = "w2v"
-    
-            print("\n Model used :", model, '\n', file=sys.stderr)
         
             result = get_similar_tweets(word, model, nlp)
 
