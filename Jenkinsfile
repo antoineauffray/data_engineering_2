@@ -10,13 +10,13 @@ pipeline {
         stage("Run") {
             steps {
                 echo "Running the docker image into container"
-                bash "sudo docker run --detach --publish 5000:5000 --name flask_app_c flask_app:2.0"
+                sh "sudo docker run --detach --publish 5000:5000 --name flask_app_c flask_app:2.0"
             }
         }
         stage("Tests") {
             steps {
                 echo "Running unit test"
-                bash "python unittest.py"
+                sh "python unittest.py"
 
                 echo "Running integration test"
 //                bash "python integration_test.py"
@@ -25,7 +25,7 @@ pipeline {
         stage("Close") {
             steps {
                 echo "Closing the docker container"
-                bash "sudo docker rm --force flask_app_c"
+                sh "sudo docker rm --force flask_app_c"
             }
         }
     }
