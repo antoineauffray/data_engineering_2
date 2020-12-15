@@ -24,7 +24,7 @@ class FlaskTests(unittest.TestCase):
     def test_model_w2v(self):
         data = {'word_to_analyse':'election', 'model':'w2v'}
         response = self.app.post('http://localhost:5000/', data=data)
-        #print(response.data)        
+        print(response.data)        
         self.assertEqual(response.status_code,200)
     
 if __name__ == '__main__':
