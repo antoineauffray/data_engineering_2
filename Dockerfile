@@ -17,6 +17,6 @@ RUN python -m spacy download en_core_web_lg
 COPY . .
 
 EXPOSE 5000
-EXPOSE 6666
+EXPOSE 8010
 
 CMD ["python", "model.py"]

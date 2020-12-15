@@ -43,12 +43,13 @@ def predict():
     INPROGRESS.inc()
     if request.method == 'POST':
         word = request.form['word_to_analyse']
-        if word != "":
-            try:
-                model = request.form['model']
-            except:
-                model = "w2v"
+        
+        try:
+            model = request.form['model']
+        except:
+            model = 'w2v'
 
+        if word != "":
             result = get_similar_tweets(word, model, nlp)
             
             INPROGRESS.dec()
@@ -59,6 +60,5 @@ def predict():
 
 
 if __name__ == '__main__':
-    start_http_server(6060)
-    app.debug = True
+    start_http_server(8010)
     app.run(host='0.0.0.0')

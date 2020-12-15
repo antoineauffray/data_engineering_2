@@ -28,13 +28,13 @@ class FlaskTests(unittest.TestCase):
         word = 'election'
         model = 'w2v'
         df_word_model = get_similar_tweets(word, model, nlp)
-        self.assertEqual(max(df_word_model.distance) < 0.10, True)
+        self.assertTrue(max(df_word_model.distance) < 0.10)
 
     def test_model_distance_d2v(self):
         word = 'election'
         model = 'd2v'
         df_word_model = get_similar_tweets(word, model, nlp)
-        self.assertEqual(max(df_word_model.distance) < 0.35, True)
+        self.assertTrue(max(df_word_model.distance) < 0.35)
 
 
 if __name__ == '__main__':
