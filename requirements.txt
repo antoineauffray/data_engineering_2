@@ -6,5 +6,4 @@ scipy
 spacy
 redis
 prometheus-client
-random
 time
