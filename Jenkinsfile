@@ -53,7 +53,6 @@ pipeline {
             steps{
                 sh 'git branch -d release'
                 sh 'git checkout -b release'
-                sh 'git pull'
                 sh 'git push origin release'
             }
         }
