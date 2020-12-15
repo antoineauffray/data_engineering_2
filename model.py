@@ -50,7 +50,7 @@ def predict():
                 model = "w2v"
 
             result = get_similar_tweets(word, model, nlp)
-I           INPROGRESS.dec()
+            INPROGRESS.dec()
             LATENCY.observe(time.time() - start)
             return render_template(template, similar_tweets=[result.to_html(classes='data', header="true")], word=word)
     INPROGRESS.dec()    
