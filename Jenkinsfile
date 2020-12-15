@@ -49,7 +49,7 @@ pipeline {
             steps{
                 script{
                     if(env.BRANCH_NAME == 'development'){
-                        sh 'git branche -d release'
+                        sh 'git branch -d release'
                         sh 'git checkout -b release'
                         sh 'git push origin release'
                     }
