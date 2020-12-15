@@ -48,9 +48,7 @@ pipeline {
                 }
             }
         }
-                   
-            }
-        }
+          
         stage("Close") {
             steps {
                 echo "Closing the docker containers"
