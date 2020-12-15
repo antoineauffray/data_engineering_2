@@ -41,9 +41,7 @@ pipeline {
                 stage('Test stress test'){
                     steps {
                         echo "Running stress test"
-                        //sh "python model.py"
                         sh "ab -n 1000 -c 100 http://localhost:5000/"
-                        //sh "^C"
                     }
                 }
             }
