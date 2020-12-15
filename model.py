@@ -43,12 +43,8 @@ def predict():
     INPROGRESS.inc()
     if request.method == 'POST':
         word = request.form['word_to_analyse']
+        model = request.form['model']
         
-        try:
-            model = request.form['model']
-        except:
-            model = 'w2v'
-
         if word != "":
             result = get_similar_tweets(word, model, nlp)
             
