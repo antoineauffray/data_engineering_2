@@ -36,9 +36,7 @@ def predict():
     LAST.set(time.time())
     REQUESTS.inc()
     start = time.time()
-    with EXCEPTIONS.count_exceptions():
-            if random.random() < 0.2:
-                raise Exception
+    EXCEPTIONS.count_exceptions()
 
     INPROGRESS.inc()
     if request.method == 'POST':
