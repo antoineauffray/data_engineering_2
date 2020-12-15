@@ -46,23 +46,23 @@ pipeline {
         }
 
         stage('Release'){
+            when{ 
+                expression {
+                    env.BRANCH_NAME == 'development'}
+            }
             steps{
-                script{
-                    if(env.BRANCH_NAME == 'development'){
-                        sh 'git checkout release'
-                        sh 'git push origin release'
-                    }
-                }
+                sh 'git checkout release'
+                sh 'git push origin release'
             }
         }
         
         stage('Validation Test'){
+            when{ 
+                expression {
+                    env.BRANCH_NAME == 'release'}
+            }
             steps{
-                script{
-                    if(env.BRANCH_NAME == 'release'){
-                        echo 'automatic merging not permitted'
-                    }
-                }
+                echo 'automatic merging not permitted'
             }
         }
     }
