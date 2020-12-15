@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage("Run docker images") {
-            parallele {
+            parallel {
                 stage('Run Redis'){
                     steps {
                         echo "Running redis the docker image into container"
@@ -25,7 +25,7 @@ pipeline {
         }
 
         stage("Tests") {
-            parallele {
+            parallel {
                 stage('Test Unit test'){
                     steps { 
                         echo "Running unit test"
