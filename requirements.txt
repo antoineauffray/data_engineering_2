@@ -6,4 +6,3 @@ scipy
 spacy
 redis
 prometheus-client
-time
