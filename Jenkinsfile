@@ -66,7 +66,7 @@ pipeline {
                     env.BRANCH_NAME == 'release'}
             }
             steps{
-                 echo 'release branch up to date'
+                echo 'release branch update'
             }
         }
     }
