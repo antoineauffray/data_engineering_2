@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <title>Twitter search application</title>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Twitter search application</h1>
+     <h3> Enter a topic</h3>
+
+     <form action="http://localhost:5000" method="post">
+        <input type="radio" id="word2vec" name="model" value="w2v">
+        <label for="word2vec">Word2Vec</label>
+        <input type="radio" id="doc2vec" name="model" value="d2v">
+        <label for="doc2vec">Doc2Vec</label>
+        <input type="radio" id="fasttext" name="model" value="ft">
+        <label for="fasttext">FastText</label>
+        <br><br>
+		<input type="text" id="word_to_analyse" name="word_to_analyse" placeholder="Enter a word..."></input>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+
+   <br>
+   <br>
+   <h3> Topic : {{ word }}</h3>
+
+   {% for table in similar_tweets %}
+            {{ table|safe }}
+  {% endfor %}
+
+ </div>
+
+
+</body>
+</html>

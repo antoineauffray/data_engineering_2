@@ -1,0 +1,17 @@
+{
+	"ulid": "01ESMGZAGP3FRTHWEP4CKSYXP1",
+	"minTime": 1608069600000,
+	"maxTime": 1608076800000,
+	"stats": {
+		"numSamples": 185149,
+		"numSeries": 1685,
+		"numChunks": 2737
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01ESMGZAGP3FRTHWEP4CKSYXP1"
+		]
+	},
+	"version": 1
+}

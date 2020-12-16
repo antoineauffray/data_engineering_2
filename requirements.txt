@@ -1,0 +1,7 @@
+flask
+pandas
+numpy
+gensim
+scipy
+spacy
+prometheus-client
