@@ -15,6 +15,10 @@ pipeline {
         }
 
         stage("Tests") {
+            when{ 
+                expression {
+                    env.BRANCH_NAME == 'development' || env.BRANCH_NAME == 'release'}
+            }
             parallel {
                 stage('Test Unit test'){
                     steps { 
@@ -51,19 +55,18 @@ pipeline {
                     env.BRANCH_NAME == 'development'}
             }
             steps{
-                sh 'git checkout -b release'
+                sh 'git checkout release'
                 sh 'git push -f origin release'
             }
         }
         
-        stage('Validation Test'){
+        stage('Main'){
             when{ 
                 expression {
                     env.BRANCH_NAME == 'release'}
             }
             steps{
-                sh 'git checkout -b main'
-                sh 'git push -f origin main'
+                echo 'release branch update'
             }
         }
     }
