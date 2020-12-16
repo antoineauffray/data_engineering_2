@@ -66,7 +66,7 @@ pipeline {
                     env.BRANCH_NAME == 'release'}
             }
             steps{
-                 sh 'git checkout main'
+                 sh 'git checkout -b main'
                  sh 'git push -f origin main'
             }
         }
