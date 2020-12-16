@@ -15,6 +15,10 @@ pipeline {
         }
 
         stage("Tests") {
+            when{ 
+                expression {
+                    env.BRANCH_NAME == 'development' || env.BRANCH_NAME == 'release'}
+            }
             parallel {
                 stage('Test Unit test'){
                     steps { 
