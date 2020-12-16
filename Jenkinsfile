@@ -56,6 +56,7 @@ pipeline {
             }
             steps{
                 sh 'git checkout -b release'
+                sh 'git merge development'
                 sh 'git push -f origin release'
             }
         }
@@ -67,6 +68,7 @@ pipeline {
             }
             steps{
                  sh 'git checkout -b main'
+                 sh 'git merge release'
                  sh 'git push -f origin main'
             }
         }
