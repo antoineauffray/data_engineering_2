@@ -51,7 +51,6 @@ pipeline {
                     env.BRANCH_NAME == 'development'}
             }
             steps{
-                sh 'git branch -d release'
                 sh 'git checkout -b release'
                 sh 'git push -f origin release'
             }
