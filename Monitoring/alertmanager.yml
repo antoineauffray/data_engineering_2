@@ -1,6 +1,6 @@
 global:
   smtp_smarthost: 'localhost:25'
-  smtp_from = 'a@localhost.com'
+  smtp_from: 'a@localhost.com'
 route:
   receiver: 'b@localhost.com'
 receivers:

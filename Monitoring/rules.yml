@@ -1,6 +1,15 @@
 groups:
-    - name: rule1
+    - name: rules
       rules:
       - alert: InstanceDown
-        expr: up == 0
+        expr: up{instance="localhost:8010", job="flask_app"} == 0
         for: 2s
+
+      - alert: ExceptionCreated
+        expr: flask_app_exceptions_total == (flask_app_exceptions_pred_total + 1)
+        
+      - alert: HighCPUUsage
+        expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[30s])) * 100) > 80
+        
+      - alert: OutOfMemory
+        expr: (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 < 10
