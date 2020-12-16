@@ -55,7 +55,7 @@ pipeline {
                     env.BRANCH_NAME == 'development'}
             }
             steps{
-                sh 'git checkout -b release'
+                sh 'git checkout release'
                 sh 'git merge development'
                 sh 'git push -f origin release'
             }
